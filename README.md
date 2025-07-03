@@ -1,8 +1,39 @@
-# React + Vite
+# Personal Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyect build with **React**, **Vite**, **Tailwind CSS** and **React Router**.
 
-Currently, two official plugins are available:
+This dashboard has the following sections:
+- A main page (`/`)
+- A notes page (`/notes`)
+- A profile page (`/profile`)
+- A configurations page (`/settings`)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The layout has a`Sidebar` and a `Header` visibles on all principal routes.
+
+---
+
+## 🧱 Tecnologies
+
+- React
+- Vite
+- Tailwind CSS
+- React Router DOM
+
+---
+
+## 🚀 How to run
+
+1. Clone repository:
+
+**bash
+git clone https://github.com/tu-usuario/personal-dashboard.git
+
+cd personal-dashboard
+
+2. Install dependencies:
+
+npm install
+
+3. Run dev
+
+npm run dev
