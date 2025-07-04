@@ -1,33 +1,39 @@
-# Personal Dashboard
+# 🧠 Personal Dashboard
 
-Proyect build with **React**, **Vite**, **Tailwind CSS** and **React Router**.
+Dashboard app built with **React**, **Vite**, **Tailwind CSS**, and **React Router DOM**.
 
-This dashboard has the following sections:
-- A main page (`/`)
-- A notes page (`/notes`)
-- A profile page (`/profile`)
-- A configurations page (`/settings`)
-
-The layout has a`Sidebar` and a `Header` visibles on all principal routes.
+This project showcases key frontend skills through a clean layout, custom hooks, charts, and reusable components. It is organized into multiple feature pages and includes visual elements like interactive sliders and dynamic charts.
 
 ---
 
-## 🧱 Tecnologies
+## 📚 Features (so far)
 
-- React
-- Vite
-- Tailwind CSS
-- React Router DOM
+- ✅ App structure with routing using **React Router**
+- ✅ Persistent `Sidebar` and `Header` via layout system
+- ✅ Dashboard (`/`) with:
+  - 📊 Chart components using **Recharts**
+  - 🎞️ Slider component using **Swiper**
+  - 🔁 Custom `useApi` hook for data fetching
+- ✅ Profile, Notes, and Settings pages (structure ready)
+
+---
+
+## 🧱 Technologies
+
+- ⚛️ React + Vite
+- 🎨 Tailwind CSS
+- 🔀 React Router DOM
+- 📈 Recharts
+- 🎠 Swiper
 
 ---
 
 ## 🚀 How to run
 
-1. Clone repository:
+1. Clone the repository:
 
 **bash
 git clone https://github.com/tu-usuario/personal-dashboard.git
-
 cd personal-dashboard
 
 2. Install dependencies:
