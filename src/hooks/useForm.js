@@ -1,11 +1,13 @@
 import { useState } from "react";
 
-function useForm() {
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    job: "",
-  });
+function useForm(initialValues) {
+  const [values, setValues] = useState(
+    initialValues || {
+      name: "",
+      email: "",
+      job: "",
+    }
+  );
   const [errors, setErrors] = useState({});
 
   //funcion para validar un campo en especifico
@@ -39,10 +41,11 @@ function useForm() {
     return newErrors;
   };
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-
-    return values;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = validateAllFields();
+    setErrors(newErrors);
+    return newErrors;
   };
 
   const handleChange = (evt) => {
@@ -66,3 +69,5 @@ function useForm() {
 
   return { values, errors, handleChange, handleSubmit };
 }
+
+export default useForm;

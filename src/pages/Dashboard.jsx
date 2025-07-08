@@ -8,7 +8,7 @@ import { FileText, MessageCircle, Image, Camera, Users } from "lucide-react";
 
 function Dashboard() {
   return (
-    <div className="stats">
+    <section className="stats">
       <div className="stats-squares grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 w-full">
         <SummaryCard
           title={"POSTS"}
@@ -44,7 +44,7 @@ function Dashboard() {
       <div className="stats-slider">
         <CardSlider />
       </div>
-    </div>
+    </section>
   );
 }
 
