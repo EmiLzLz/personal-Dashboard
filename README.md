@@ -14,7 +14,13 @@ This project showcases key frontend skills through a clean layout, custom hooks,
   - 📊 Chart components using **Recharts**
   - 🎞️ Slider component using **Swiper**
   - 🔁 Custom `useApi` hook for data fetching
-- ✅ Profile, Notes, and Settings pages (structure ready)
+  - 🔢 `SummaryCard` components to display total counts
+- ✅ Profile page (`/profile`) with:
+  - 📝 Editable form using `ProfileEditor`
+  - ✅ Validation via custom `useForm` hook
+  - 💾 Persistence using `useLocalStorage`
+  - 👤 Header displays user information dynamically
+- ✅ Notes and Settings pages (layout structure ready)
 
 ---
 
@@ -25,6 +31,7 @@ This project showcases key frontend skills through a clean layout, custom hooks,
 - 🔀 React Router DOM
 - 📈 Recharts
 - 🎠 Swiper
+- 📦 Custom Hooks: `useApi`, `useForm`, `useLocalStorage`
 
 ---
 
@@ -35,6 +42,7 @@ This project showcases key frontend skills through a clean layout, custom hooks,
 **bash
 git clone https://github.com/tu-usuario/personal-dashboard.git
 cd personal-dashboard
+
 
 2. Install dependencies:
 
