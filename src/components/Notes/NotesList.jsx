@@ -1,6 +1,6 @@
 import { Search, BookOpen, StickyNote } from "lucide-react";
 import NoteCard from "./NoteCard";
-import useLocalStorage from "../hooks/useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 function NotesList() {
   const [notes, setNotes] = useLocalStorage("Notes", []);
