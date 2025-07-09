@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import NotesList from "../components/NotesList";
 
 function Notes() {
   return (
-    <section>Notes</section>
-  )
+    <section className="w-screen h-full md:h-screen">
+      <NotesList />
+    </section>
+  );
 }
 
-export default Notes
+export default Notes;
