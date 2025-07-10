@@ -6,7 +6,7 @@ function NotesList() {
   const [notes, setNotes] = useLocalStorage("Notes", []);
 
   const handleDelete = (id) => {
-    const notesUpdate = notes.filter((note) => note.id != id);
+    const notesUpdate = notes.filter((note) => note.id !== id);
     setNotes(notesUpdate);
   };
 
@@ -50,6 +50,7 @@ function NotesList() {
               iconBg="bg-blue-500"
               title={note.title}
               description={note.description}
+              priority={note.priority} 
               onDelete = {handleDelete}
             />
           ))}

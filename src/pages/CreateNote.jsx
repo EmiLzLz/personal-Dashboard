@@ -1,5 +1,5 @@
 import React from "react";
-import NotesForm from "../components/NoteForm";
+import NotesForm from "../components/Notes/NoteForm";
 
 function CreateNotes() {
   return (

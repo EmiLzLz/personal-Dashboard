@@ -1,6 +1,23 @@
-import { useState } from "react";
+import useNotesForm from "../../hooks/useNotesForm";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 export default function NotesForm() {
+  const { values, errors, handleChange, handleSubmit } = useNotesForm();
+  const [notes, setNotes] = useLocalStorage("Notes", []);
+
+  const handleFormSubmit = (e) => {
+    const validationErrors = handleSubmit(e);
+    if (Object.keys(validationErrors).length === 0) {
+      const newNote = {
+        ...values,
+        id: crypto.randomUUID(),
+        createdAt: new Date().toISOString(),
+      };
+      setNotes([...notes, newNote]);
+      console.log(newNote)
+    }
+  };
+
   return (
     <div className="relative w-full flex justify-center items-center min-h-screen">
       {/* Efecto de luz azul difuminado en el centro */}
@@ -20,10 +37,7 @@ export default function NotesForm() {
           </p>
         </header>
 
-        <form
-          className="notes-form space-y-6"
-          onSubmit={(e) => e.preventDefault()}
-        >
+        <form className="notes-form space-y-6" onSubmit={handleFormSubmit}>
           {/* Campo Título */}
           <div className="space-y-2">
             <label
@@ -36,6 +50,9 @@ export default function NotesForm() {
               type="text"
               id="title"
               name="title"
+              value={values.title}
+              onChange={handleChange}
+              error={errors.title}
               placeholder="Enter note title"
               className="w-full px-4 py-3 bg-black/60 border border-gray-700 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm"
               required
@@ -53,6 +70,9 @@ export default function NotesForm() {
             <textarea
               id="description"
               name="description"
+              value={values.description}
+              onChange={handleChange}
+              error={errors.description}
               placeholder="Enter note description"
               rows={4}
               className="w-full px-4 py-3 bg-black/60 border border-gray-700 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm resize-none"
@@ -71,7 +91,9 @@ export default function NotesForm() {
                   type="radio"
                   name="priority"
                   value="low"
-                  defaultChecked
+                  checked={values.priority === "low"}
+                  onChange={handleChange}
+                  error={errors.prority}
                   className="sr-only"
                 />
                 <div
@@ -88,6 +110,9 @@ export default function NotesForm() {
                   type="radio"
                   name="priority"
                   value="medium"
+                  checked={values.priority === "medium"}
+                  onChange={handleChange}
+                  error={errors.prority}
                   className="sr-only"
                 />
                 <div
@@ -106,6 +131,9 @@ export default function NotesForm() {
                   type="radio"
                   name="priority"
                   value="high"
+                  checked={values.priority === "high"}
+                  onChange={handleChange}
+                  error={errors.prority}
                   className="sr-only"
                 />
                 <div
