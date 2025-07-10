@@ -20,7 +20,13 @@ This project showcases key frontend skills through a clean layout, custom hooks,
   - ✅ Validation via custom `useForm` hook
   - 💾 Persistence using `useLocalStorage`
   - 👤 Header displays user information dynamically
-- ✅ Notes and Settings pages (layout structure ready)
+- ✅ Notes section (`/notes`) with:
+  - 🗂️ Dynamic rendering of notes stored in localStorage
+  - ➕ Form to create notes via `NoteForm`
+  - 🚮 Deletion functionality via `handleDelete`
+  - 🧠 Custom `useNotesForm` hook for validation
+  - 🎨 Priority-based coloring for note cards
+- ✅ Settings page (structure ready)
 
 ---
 
@@ -31,7 +37,7 @@ This project showcases key frontend skills through a clean layout, custom hooks,
 - 🔀 React Router DOM
 - 📈 Recharts
 - 🎠 Swiper
-- 📦 Custom Hooks: `useApi`, `useForm`, `useLocalStorage`
+- 📦 Custom Hooks: `useApi`, `useForm`, `useLocalStorage`, `useNotesForm`
 
 ---
 
