@@ -1,14 +1,33 @@
 import { Search, BookOpen, StickyNote } from "lucide-react";
 import NoteCard from "./NoteCard";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { useEffect, useState } from "react";
+import useDebounce from "../../hooks/useDebounce";
 
 function NotesList() {
   const [notes, setNotes] = useLocalStorage("Notes", []);
+  const [userSearch, setUserSearch] = useState("");
+  const [filteredNotes, setFilteredNotes] = useState([]);
+  const debouncedSearch = useDebounce(userSearch, 400);
 
   const handleDelete = (id) => {
     const notesUpdate = notes.filter((note) => note.id !== id);
     setNotes(notesUpdate);
   };
+
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    setUserSearch(value);
+  };
+
+  useEffect(() => {
+      const similarNotes = notes.filter((note) =>
+        note.title.toLowerCase().includes(debouncedSearch.toLowerCase())
+      );
+
+      setFilteredNotes(similarNotes);
+      console.log(filteredNotes);
+    }, [debouncedSearch, notes]);
 
   return (
     <>
@@ -34,6 +53,8 @@ function NotesList() {
           <div className="relative">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
+              value={userSearch}
+              onChange={handleInputChange}
               type="text"
               placeholder="Search in your notes"
               className="w-full pl-12 pr-4 py-4 bg-gray-50 rounded-full border-none outline-none focus:bg-white focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20 transition-all duration-300 text-gray-700 placeholder-gray-400 shadow-sm"
@@ -42,7 +63,7 @@ function NotesList() {
         </div>
 
         <div className="notes-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
-          {notes.map((note) => (
+          {(filteredNotes.length > 0 ? filteredNotes : notes).map((note) => (
             <NoteCard
               key={note.id}
               id={note.id}
@@ -50,8 +71,8 @@ function NotesList() {
               iconBg="bg-blue-500"
               title={note.title}
               description={note.description}
-              priority={note.priority} 
-              onDelete = {handleDelete}
+              priority={note.priority}
+              onDelete={handleDelete}
             />
           ))}
         </div>
