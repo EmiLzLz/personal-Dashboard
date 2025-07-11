@@ -1,43 +1,63 @@
-# 🧠 Personal Dashboard
-
-Dashboard app built with **React**, **Vite**, **Tailwind CSS**, and **React Router DOM**.
+🧠 Personal Dashboard
+Dashboard app built with React, Vite, Tailwind CSS, and React Router DOM.
 
 This project showcases key frontend skills through a clean layout, custom hooks, charts, and reusable components. It is organized into multiple feature pages and includes visual elements like interactive sliders and dynamic charts.
 
 ---
 
-## 📚 Features (so far)
+📚 Features (so far)
+✅ App structure with routing using React Router
 
-- ✅ App structure with routing using **React Router**
-- ✅ Persistent `Sidebar` and `Header` via layout system
-- ✅ Dashboard (`/`) with:
-  - 📊 Chart components using **Recharts**
-  - 🎞️ Slider component using **Swiper**
-  - 🔁 Custom `useApi` hook for data fetching
-  - 🔢 `SummaryCard` components to display total counts
-- ✅ Profile page (`/profile`) with:
-  - 📝 Editable form using `ProfileEditor`
-  - ✅ Validation via custom `useForm` hook
-  - 💾 Persistence using `useLocalStorage`
-  - 👤 Header displays user information dynamically
-- ✅ Notes section (`/notes`) with:
-  - 🗂️ Dynamic rendering of notes stored in localStorage
-  - ➕ Form to create notes via `NoteForm`
-  - 🚮 Deletion functionality via `handleDelete`
-  - 🧠 Custom `useNotesForm` hook for validation
-  - 🎨 Priority-based coloring for note cards
-- ✅ Settings page (structure ready)
+✅ Persistent Sidebar and Header via layout system
 
----
+✅ Dashboard (/) with:
 
-## 🧱 Technologies
+📊 Chart components using Recharts
 
-- ⚛️ React + Vite
-- 🎨 Tailwind CSS
-- 🔀 React Router DOM
-- 📈 Recharts
-- 🎠 Swiper
-- 📦 Custom Hooks: `useApi`, `useForm`, `useLocalStorage`, `useNotesForm`
+🎞️ Slider component using Swiper
+
+🔁 Custom useApi hook for data fetching
+
+🔢 SummaryCard components to display total counts
+
+✅ Profile page (/profile) with:
+
+📝 Editable form using ProfileEditor
+
+✅ Validation via custom useForm hook
+
+💾 Persistence using useLocalStorage
+
+👤 Header displays user information dynamically
+
+✅ Notes section (/notes) with:
+
+🗂️ Dynamic rendering of notes stored in localStorage
+
+➕ Form to create notes via NoteForm
+
+🚮 Deletion functionality via handleDelete
+
+🧠 Custom useNotesForm hook for validation
+
+⏳ Search functionality with debounced input using useDebounce hook
+
+🎨 Priority-based coloring for note cards
+
+✅ Settings page (structure ready)
+
+🧱 Technologies
+⚛️ React + Vite
+
+🎨 Tailwind CSS
+
+🔀 React Router DOM
+
+📈 Recharts
+
+🎠 Swiper
+
+📦 Custom Hooks: useApi, useForm, useLocalStorage, useNotesForm, useDebounce
 
 ---
 
