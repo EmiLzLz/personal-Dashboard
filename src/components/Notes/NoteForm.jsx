@@ -28,10 +28,10 @@ export default function NotesForm() {
 
       <div className="relative z-10 w-full max-w-md">
         <header className="header-form text-center mb-8">
-          <h2 className="text-3xl font-bold text-white mb-4 tracking-wide">
+          <h2 className="text-3xl font-bold text-text-dark dark:text-text-light mb-4 tracking-wide">
             CREATE NOTES
           </h2>
-          <p className="text-gray-300 text-sm leading-relaxed">
+          <p className="text-text-dark dark:text-text-light text-sm leading-relaxed">
             Complete the form to create a new note. Then you can see it in the
             notes section.
           </p>
@@ -42,7 +42,7 @@ export default function NotesForm() {
           <div className="space-y-2">
             <label
               htmlFor="title"
-              className="block text-sm font-medium text-gray-300 transition-colors duration-200"
+              className="block text-sm font-medium text-text-dark dark:text-text-light transition-colors duration-200"
             >
               Title
             </label>
@@ -63,7 +63,7 @@ export default function NotesForm() {
           <div className="space-y-2">
             <label
               htmlFor="description"
-              className="block text-sm font-medium text-gray-300 transition-colors duration-200"
+              className="block text-sm font-medium text-text-dark dark:text-text-light transition-colors duration-200"
             >
               Description
             </label>
@@ -82,7 +82,7 @@ export default function NotesForm() {
 
           {/* Sección de Prioridad */}
           <fieldset className="space-y-3">
-            <legend className="block text-sm font-medium text-gray-300 mb-3">
+            <legend className="block text-sm font-medium text-text-dark dark:text-text-light mb-3">
               Priority
             </legend>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">

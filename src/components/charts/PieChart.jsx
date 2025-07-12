@@ -31,13 +31,14 @@ const StatsPieChart = () => {
     { name: "Incompletas", value: notCompletedCount },
   ];
 
-  const COLORS = ["#38bdf8", "#64748b"]; // azul y gris oscuro
-
   return (
-    <div className="max-w-2xl mx-auto mt-12 px-6 py-8 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl animate-fade-in">
-      <h2 className="text-2xl font-semibold text-white mb-6 text-center tracking-wide">
-        Distribución de Tareas Completadas
+    <div className="w-11/12 mx-auto mt-12 px-6 py-8 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border border-white/50">
+      <h2 className="text-2xl font-semibold text-black mb-2 text-center tracking-wide">
+        Completed Tasks Distribution
       </h2>
+      <p className="text-gray-700 text-center mb-6 text-sm">
+        View the distribution of completed tasks across all users
+      </p>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
@@ -45,7 +46,7 @@ const StatsPieChart = () => {
             cx="50%"
             cy="50%"
             outerRadius={100}
-            fill="#8884d8"
+            fill="#56E39F"
             dataKey="value"
             label={({ name, percent }) =>
               `${name} ${(percent * 100).toFixed(0)}%`
@@ -54,7 +55,7 @@ const StatsPieChart = () => {
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
+                fill={entry.name === "Completadas" ? "#56E39F" : "#64748b"}
               />
             ))}
           </Pie>
@@ -65,14 +66,14 @@ const StatsPieChart = () => {
               borderColor: "#475569",
               color: "white",
             }}
-            labelStyle={{ color: "#38bdf8" }}
+            labelStyle={{ color: "#56E39F" }}
             itemStyle={{ color: "#f1f5f9" }}
           />
           <Legend
             verticalAlign="bottom"
             iconType="circle"
             formatter={(value) => (
-              <span className="text-slate-200 text-sm">{value}</span>
+              <span className="text-black text-sm">{value}</span>
             )}
           />
         </PieChart>

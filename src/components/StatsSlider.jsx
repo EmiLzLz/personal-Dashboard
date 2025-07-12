@@ -51,10 +51,8 @@ const CardSlider = () => {
               paddingBottom: "20px",
             }}
           >
-            <div
-              className="card-container bg-white rounded-lg max-w-[300px] w-full flex flex-col shadow-lg border border-gray-200"
-            >
-              <div className="bg-indigo-50 text-indigo-700 font-semibold text-center py-3 rounded-t-lg border-b border-gray-200">
+            <div className="card-container bg-white rounded-lg max-w-[300px] w-full flex flex-col shadow-lg border border-gray-200">
+              <div className="bg-white text-gray-800 font-semibold text-center py-3 rounded-t-lg border-b border-gray-200">
                 Usuario #{user.id}
               </div>
               <div className="p-4 flex flex-col flex-grow text-gray-800 text-sm space-y-2">
@@ -65,7 +63,7 @@ const CardSlider = () => {
                   <span className="font-semibold text-gray-700">Email:</span>{" "}
                   <a
                     href={`mailto:${user.email}`}
-                    className="text-indigo-600 hover:underline truncate block"
+                    className="text-[#29339B] hover:underline truncate block"
                     title={user.email}
                   >
                     {user.email}
@@ -92,7 +90,7 @@ const CardSlider = () => {
                     href={`http://${user.website}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-indigo-600 hover:underline truncate block"
+                    className="text-[#29339B] hover:underline truncate block"
                     title={user.website}
                   >
                     {user.website}
@@ -100,7 +98,7 @@ const CardSlider = () => {
                 </div>
 
                 <div className="mt-auto flex justify-between gap-2 pt-3">
-                  <button className="flex-grow px-3 py-1.5 bg-indigo-600 text-white rounded-md text-sm font-medium hover:bg-indigo-700 transition">
+                  <button className="flex-grow px-3 py-1.5 bg-[#56E39F] text-white rounded-md text-sm font-medium hover:bg-[#4BC08A] transition">
                     Ver más
                   </button>
                   <button className="flex-grow px-3 py-1.5 bg-gray-100 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-200 transition">

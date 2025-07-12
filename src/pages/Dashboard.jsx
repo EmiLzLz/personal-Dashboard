@@ -9,7 +9,7 @@ import { FileText, MessageCircle, Image, Camera, Users } from "lucide-react";
 function Dashboard() {
   return (
     <section className="stats">
-      <div className="stats-squares grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 w-full">
+      <div className="stats-squares grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-6">
         <SummaryCard
           title={"POSTS"}
           icon={FileText}
@@ -19,11 +19,6 @@ function Dashboard() {
           title={"COMMENTS"}
           icon={MessageCircle}
           endpoint={"https://jsonplaceholder.typicode.com/comments"}
-        />
-        <SummaryCard
-          title={"ALBUMS"}
-          icon={Image}
-          endpoint={"https://jsonplaceholder.typicode.com/albums"}
         />
         <SummaryCard
           title={"PHOTOS"}
@@ -36,10 +31,12 @@ function Dashboard() {
           endpoint={"https://jsonplaceholder.typicode.com/users"}
         />
       </div>
-      <div className="stats-graphs">
+      <div className="stats-graphs grid grid-cols-1 md:grid-cols-2 gap-6">
         <StatsLineChart />
-        <StatsBarChart />
         <StatsPieChart />
+        <div className="md:col-span-2">
+          <StatsBarChart />
+        </div>
       </div>
       <div className="stats-slider">
         <CardSlider />

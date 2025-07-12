@@ -4,8 +4,18 @@ export default {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}", // Muy importante para detectar clases
   ],
+
+  darkMode: "class",
+
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'bg-light': '#F5EDF0',
+        'bg-dark': '#171717',
+        'text-dark': '#171717',
+        'text-light': '#F5EDF0',
+      },
+    },
   },
   plugins: [],
 };

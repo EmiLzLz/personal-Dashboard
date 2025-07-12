@@ -38,32 +38,35 @@ const StatsBarChart = () => {
   }));
 
   return (
-    <div className="max-w-5xl mx-auto mt-12 px-6 py-8 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl animate-fade-in">
-      <h2 className="text-2xl font-semibold text-white mb-6 text-center tracking-wide">
-        Publicaciones por Usuario
+    <div className="max-w-5xl mx-auto mt-12 px-6 py-8 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl border border-white/50 animate-fade-in">
+      <h2 className="text-2xl font-semibold text-black mb-2 text-center tracking-wide">
+        Posts by User
       </h2>
+      <p className="text-gray-700 text-center mb-6">
+        Distribution of posts across different users in the system
+      </p>
       <ResponsiveContainer width="100%" height={360}>
         <BarChart
           data={chartData}
           margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#475569" />
+          <CartesianGrid horizontal={true} vertical={false} stroke="#475569" />
 
-          <XAxis dataKey="userId" stroke="#f1f5f9">
+          <XAxis dataKey="userId" stroke="#000000">
             <Label
-              value="ID del Usuario"
+              value="User ID"
               position="outsideBottom"
               dy={20}
-              style={{ fill: "#ffffff", fontSize: 14 }}
+              style={{ fill: "#000000", fontSize: 14 }}
             />
           </XAxis>
 
-          <YAxis stroke="#f1f5f9">
+          <YAxis stroke="#000000">
             <Label
-              value="Cantidad de Publicaciones"
+              value="Number of Posts"
               angle={-90}
               position="insideLeft"
-              style={{ textAnchor: "middle", fill: "#ffffff", fontSize: 14 }}
+              style={{ textAnchor: "middle", fill: "#000000", fontSize: 14 }}
             />
           </YAxis>
 
@@ -73,13 +76,13 @@ const StatsBarChart = () => {
               borderColor: "#475569",
               color: "white",
             }}
-            labelStyle={{ color: "#38bdf8" }}
+            labelStyle={{ color: "#56E39F" }}
             itemStyle={{ color: "#f1f5f9" }}
           />
 
           <Bar
             dataKey="postCount"
-            fill="#38bdf8"
+            fill="#56E39F"
             radius={[6, 6, 0, 0]}
             isAnimationActive={true}
             animationDuration={800}

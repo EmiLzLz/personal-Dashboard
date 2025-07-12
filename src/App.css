@@ -18,8 +18,7 @@
 }
 
 .card-container:hover {
-  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4); /* azul índigo */
-  border-color: #6366f1; /* indigo-400 */
+  box-shadow: 0 10px 20px rgba(130,2,99, 0.4); 
   transform: scale(1.05);
 }
 

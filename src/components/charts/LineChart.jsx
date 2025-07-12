@@ -38,32 +38,35 @@ const StatsLineChart = () => {
   }));
 
   return (
-    <div className="max-w-5xl mx-auto mt-12 px-6 py-8 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl animate-fade-in">
-      <h2 className="text-2xl font-semibold text-white mb-6 text-center tracking-wide">
-        Tareas Completadas por Usuario
+    <div className="w-11/12 mx-auto mt-12 px-6 py-8 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border border-white/50">
+      <h2 className="text-2xl font-semibold text-black mb-2 text-center tracking-wide">
+        Completed Tasks by User
       </h2>
+      <p className="text-gray-700 text-center mb-6 text-sm">
+        Track the number of tasks completed by each user in the system
+      </p>
       <ResponsiveContainer width="100%" height={360}>
         <LineChart
           data={chartData}
           margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#475569" />
+          <CartesianGrid horizontal={true} vertical={false} stroke="#475569" />
 
-          <XAxis dataKey="userId" stroke="#f1f5f9">
+          <XAxis dataKey="userId" stroke="#000000">
             <Label
-              value="ID del Usuario"
+              value="User ID"
               position="outsideBottom"
               dy={40}
-              style={{ fill: "#ffffff", fontSize: 14 }}
+              style={{ fill: "#000000", fontSize: 14 }}
             />
           </XAxis>
 
-          <YAxis stroke="#f1f5f9">
+          <YAxis stroke="#000000">
             <Label
-              value="Tareas Completadas"
+              value="Completed Tasks"
               angle={-90}
               position="insideLeft"
-              style={{ textAnchor: "middle", fill: "#ffffff", fontSize: 14 }}
+              style={{ textAnchor: "middle", fill: "#000000", fontSize: 14 }}
             />
           </YAxis>
 
@@ -73,18 +76,18 @@ const StatsLineChart = () => {
               borderColor: "#475569",
               color: "white",
             }}
-            labelStyle={{ color: "#38bdf8" }}
+            labelStyle={{ color: "#56E39F" }}
             itemStyle={{ color: "#f1f5f9" }}
           />
 
           <Line
             type="monotone"
             dataKey="completedCount"
-            stroke="#38bdf8"
+            stroke="#56E39F"
             strokeWidth={3}
-            dot={{ r: 5, stroke: "#38bdf8", strokeWidth: 2, fill: "#0f172a" }}
-            activeDot={{ r: 8, fill: "#38bdf8" }}
-            isAnimationActive={true} // ✅ Animación al trazar
+            dot={{ r: 5, stroke: "#56E39F", strokeWidth: 2, fill: "#0f172a" }}
+            activeDot={{ r: 8, fill: "#56E39F" }}
+            isAnimationActive={true}
             animationDuration={800}
             animationBegin={200}
           />

@@ -24,13 +24,13 @@ function ProfileEditor() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-gray-50 to-slate-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+        <div className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-gray-100/30 drop-shadow-lg">
           {/* Header del formulario */}
-          <div className="bg-gradient-to-r from-emerald-500 to-teal-600 px-8 py-10">
-            <h1 className="text-3xl font-bold text-white text-center mb-2">
+          <div className="bg-white/10 backdrop-blur-sm px-8 py-10">
+            <h1 className="text-3xl font-bold text-gray-800 text-center mb-2">
               User Information
             </h1>
-            <p className="text-emerald-100 text-center text-lg">
+            <p className="text-gray-600 text-center text-lg">
               Please complete your personal details
             </p>
           </div>
@@ -89,7 +89,7 @@ function ProfileEditor() {
               <div className="pt-6 border-t border-gray-200">
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 px-6 rounded-lg font-medium hover:from-emerald-600 hover:to-teal-700 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="w-full bg-[#56E39F] text-white py-4 px-6 rounded-lg font-medium hover:bg-[#4BC08A] focus:ring-2 focus:ring-[#56E39F] focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
                 >
                   Save Information
                 </button>

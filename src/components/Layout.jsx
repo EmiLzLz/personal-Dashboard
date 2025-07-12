@@ -5,11 +5,11 @@ import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
-    <div>
+    <div className="bg-bg-light dark:bg-black dark:text-text-light w-full">
       <div className="header-section">
         <Header />
       </div>
-      <div className="content-columns">
+      <div className="content-column px-8">
         <div className="left-column">
           <Sidebar />
         </div>
