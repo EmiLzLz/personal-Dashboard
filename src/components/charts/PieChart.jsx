@@ -32,25 +32,26 @@ const StatsPieChart = () => {
   ];
 
   return (
-    <div className="w-11/12 mx-auto mt-12 px-6 py-8 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border border-white/50">
-      <h2 className="text-2xl font-semibold text-black mb-2 text-center tracking-wide">
+    <div className="w-11/12 mx-auto mt-8 px-4 py-4 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border border-white/50">
+      <h2 className="text-lg font-semibold text-black mb-1 text-center tracking-wide">
         Completed Tasks Distribution
       </h2>
-      <p className="text-gray-700 text-center mb-6 text-sm">
+      <p className="text-gray-700 text-center mb-4 text-xs">
         View the distribution of completed tasks across all users
       </p>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={280}>
         <PieChart>
           <Pie
             data={chartData}
             cx="50%"
-            cy="50%"
-            outerRadius={100}
+            cy="45%"
+            outerRadius={80}
             fill="#56E39F"
             dataKey="value"
             label={({ name, percent }) =>
               `${name} ${(percent * 100).toFixed(0)}%`
             }
+            labelLine={false}
           >
             {chartData.map((entry, index) => (
               <Cell
@@ -72,6 +73,7 @@ const StatsPieChart = () => {
           <Legend
             verticalAlign="bottom"
             iconType="circle"
+            wrapperStyle={{ paddingTop: "10px" }}
             formatter={(value) => (
               <span className="text-black text-sm">{value}</span>
             )}

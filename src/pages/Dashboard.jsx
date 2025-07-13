@@ -31,12 +31,10 @@ function Dashboard() {
           endpoint={"https://jsonplaceholder.typicode.com/users"}
         />
       </div>
-      <div className="stats-graphs grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="stats-graphs grid grid-cols-1 md:grid-cols-3 gap-6 py-20">
         <StatsLineChart />
         <StatsPieChart />
-        <div className="md:col-span-2">
-          <StatsBarChart />
-        </div>
+        <StatsBarChart />
       </div>
       <div className="stats-slider">
         <CardSlider />

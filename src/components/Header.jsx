@@ -1,164 +1,96 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import useLocalStorage from "../hooks/useLocalStorage";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { Menu, User, Settings } from "lucide-react";
 
 function Header() {
-  const [storedUser] = useLocalStorage("Users", { name: "", job: "" });
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  const navItems = [
-    { path: "/", label: "Dashboard", icon: "📊" },
-    { path: "/profile", label: "Profile", icon: "👤" },
-    { path: "/notes", label: "Notes", icon: "📝" },
-    { path: "/settings", label: "Settings", icon: "⚙️" },
-  ];
+  // Mapeo de rutas a nombres de páginas
+  const pageNames = {
+    "/": "Dashboard",
+    "/profile": "Profile",
+    "/notes": "Notes",
+    "/settings": "Settings",
+    "/create-note": "Create Note",
+  };
 
-  const isActiveRoute = (path) => {
-    return path === "/"
-      ? location.pathname === "/"
-      : location.pathname.startsWith(path);
+  // Obtener el nombre de la página actual
+  const getCurrentPageName = () => {
+    return pageNames[location.pathname] || "Page";
+  };
+
+  // Detectar scroll para aplicar efecto glass
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleToggleMenu = () => {
+    // Aquí irá la lógica del toggle menu más tarde
+    console.log("Toggle menu clicked");
+  };
+
+  const handleUserClick = () => {
+    console.log("User icon clicked");
+  };
+
+  const handleSettingsClick = () => {
+    console.log("Settings icon clicked");
   };
 
   return (
-    <header className="sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-4">
-      <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-md border border-gray-200/50 shadow-lg rounded-2xl">
-        <div className="flex items-center justify-between h-16 px-6">
-          {/* Logo/Title */}
-          <div className="flex items-center">
-            <Link
-              to="/"
-              className="text-2xl font-bold text-gray-900 hover:text-emerald-600 transition-colors duration-200"
-              aria-label="Go to dashboard home"
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 bg-transparent">
+      <div className="max-w-6xl mx-auto">
+        <div
+          className={`flex items-center justify-between h-16 px-6 rounded-2xl transition-all duration-300 ${
+            isScrolled
+              ? "bg-white/70 backdrop-blur-lg shadow-lg border border-gray-200/20"
+              : "bg-transparent"
+          }`}
+        >
+          {/* Lado izquierdo: Toggle Menu + Breadcrumbs */}
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={handleToggleMenu}
+              className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100/50 transition-colors duration-200"
+              aria-label="Toggle menu"
             >
-              My Dashboard
-            </Link>
+              <Menu className="w-6 h-6" />
+            </button>
+
+            <div className="text-sm text-gray-600">
+              <span className="font-medium">Page</span>
+              <span className="mx-2">/</span>
+              <span className="text-gray-900 font-medium">
+                {getCurrentPageName()}
+              </span>
+            </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav
-            className="hidden md:flex items-center space-x-1"
-            role="navigation"
-            aria-label="Main navigation"
-          >
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-gray-100 ${
-                  isActiveRoute(item.path)
-                    ? "bg-emerald-100 text-emerald-700 shadow-sm"
-                    : "text-gray-700 hover:text-gray-900"
-                }`}
-                aria-current={isActiveRoute(item.path) ? "page" : undefined}
-              >
-                <span className="mr-2" aria-hidden="true">
-                  {item.icon}
-                </span>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* User Info & Mobile Menu */}
-          <div className="flex items-center space-x-4">
-            {/* User Info */}
-            <div className="hidden sm:flex items-center space-x-3">
-              <div className="text-right">
-                <p className="text-sm font-medium text-gray-900">
-                  {storedUser.name || "User"}
-                </p>
-                <p className="text-xs text-gray-500">
-                  {storedUser.job || "No job title"}
-                </p>
-              </div>
-            </div>
-
-            {/* Date */}
-            <div className="hidden lg:block text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-lg">
-              THE CURRENT DATE
-            </div>
-
-            {/* Mobile Menu Button */}
+          {/* Lado derecho: Iconos de Usuario y Ajustes */}
+          <div className="flex items-center space-x-2">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200"
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu"
-              aria-label="Toggle navigation menu"
+              onClick={handleUserClick}
+              className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100/50 transition-colors duration-200"
+              aria-label="User profile"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                {isMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
+              <User className="w-6 h-6" />
+            </button>
+
+            <button
+              onClick={handleSettingsClick}
+              className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100/50 transition-colors duration-200"
+              aria-label="Settings"
+            >
+              <Settings className="w-6 h-6" />
             </button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div
-            id="mobile-menu"
-            className="md:hidden py-4 border-t border-gray-200/50 bg-white/95 backdrop-blur-sm rounded-b-2xl"
-          >
-            <nav
-              className="space-y-2 px-6"
-              role="navigation"
-              aria-label="Mobile navigation"
-            >
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${
-                    isActiveRoute(item.path)
-                      ? "bg-emerald-100 text-emerald-700"
-                      : "text-gray-700 hover:bg-gray-100"
-                  }`}
-                  aria-current={isActiveRoute(item.path) ? "page" : undefined}
-                >
-                  <span className="mr-3" aria-hidden="true">
-                    {item.icon}
-                  </span>
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-
-            {/* Mobile User Info */}
-            <div className="sm:hidden mt-4 pt-4 border-t border-gray-200/50 px-6">
-              <div className="flex items-center px-4 py-2">
-                <div>
-                  <p className="text-sm font-medium text-gray-900">
-                    {storedUser.name || "User"}
-                  </p>
-                  <p className="text-xs text-gray-500">
-                    {storedUser.job || "No job title"}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </header>
   );

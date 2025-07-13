@@ -38,17 +38,17 @@ const StatsLineChart = () => {
   }));
 
   return (
-    <div className="w-11/12 mx-auto mt-12 px-6 py-8 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border border-white/50">
-      <h2 className="text-2xl font-semibold text-black mb-2 text-center tracking-wide">
+    <div className="w-11/12 mx-auto mt-8 px-4 py-4 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border border-white/50">
+      <h2 className="text-lg font-semibold text-black mb-1 text-center tracking-wide">
         Completed Tasks by User
       </h2>
-      <p className="text-gray-700 text-center mb-6 text-sm">
+      <p className="text-gray-700 text-center mb-4 text-xs">
         Track the number of tasks completed by each user in the system
       </p>
-      <ResponsiveContainer width="100%" height={360}>
+      <ResponsiveContainer width="100%" height={240}>
         <LineChart
           data={chartData}
-          margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+          margin={{ top: 10, right: 20, left: 10, bottom: 40 }}
         >
           <CartesianGrid horizontal={true} vertical={false} stroke="#475569" />
 
@@ -56,8 +56,8 @@ const StatsLineChart = () => {
             <Label
               value="User ID"
               position="outsideBottom"
-              dy={40}
-              style={{ fill: "#000000", fontSize: 14 }}
+              dy={25}
+              style={{ fill: "#000000", fontSize: 12 }}
             />
           </XAxis>
 
@@ -66,7 +66,7 @@ const StatsLineChart = () => {
               value="Completed Tasks"
               angle={-90}
               position="insideLeft"
-              style={{ textAnchor: "middle", fill: "#000000", fontSize: 14 }}
+              style={{ textAnchor: "middle", fill: "#000000", fontSize: 12 }}
             />
           </YAxis>
 

@@ -24,7 +24,7 @@ const CardSlider = () => {
     );
 
   return (
-    <div className="px-4 py-20 max-w-[100vw] overflow-hidden">
+    <div className="px-4 pt-20 max-w-[100vw] overflow-hidden">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
