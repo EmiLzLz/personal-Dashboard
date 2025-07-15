@@ -22,26 +22,26 @@ function ProfileEditor() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-gray-50 to-slate-100 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen w-full bg-gradient-to-br  py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto">
-        <div className="bg-white/20 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-gray-100/30 drop-shadow-lg">
+        <div className="bg-element-light dark:bg-element-dark backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden drop-shadow-lg">
           {/* Header del formulario */}
-          <div className="bg-white/10 backdrop-blur-sm px-8 py-10">
-            <h1 className="text-3xl font-bold text-gray-800 text-center mb-2">
+          <div className=" backdrop-blur-sm px-8 py-10">
+            <h1 className="text-3xl font-bold text-text-dark dark:text-text-light text-center mb-2">
               User Information
             </h1>
-            <p className="text-gray-600 text-center text-lg">
+            <p className="text-text-dark dark:text-text-light text-center text-lg">
               Please complete your personal details
             </p>
           </div>
 
           {/* Formulario */}
-          <form onSubmit={handleFormSubmit} className="px-8 py-10">
+          <form onSubmit={handleFormSubmit} className="px-8 py-10 ">
             <div className="space-y-8">
               {/* Información Personal */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
-                  <h2 className="text-lg font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">
+                  <h2 className="text-lg font-semibold text-text-dark dark:text-text-light mb-4 border-b border-gray-200 pb-2">
                     Personal Information
                   </h2>
                 </div>
@@ -70,7 +70,7 @@ function ProfileEditor() {
 
               {/* Información Profesional */}
               <div className="space-y-6">
-                <h2 className="text-lg font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">
+                <h2 className="text-lg font-semibold text-text-dark dark:text-text-light mb-4 border-b border-gray-200 pb-2">
                   Professional Information
                 </h2>
 
@@ -100,7 +100,7 @@ function ProfileEditor() {
 
         {/* Footer del formulario */}
         <div className="text-center mt-8">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-text-dark dark:text-text-light">
             Your data is protected and secure
           </p>
         </div>

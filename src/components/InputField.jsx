@@ -11,7 +11,7 @@ function InputField({
 }) {
   return (
     <div className="space-y-3">
-      <label htmlFor={id} className="block text-sm font-medium text-gray-700">
+      <label htmlFor={id} className="block text-sm font-medium text-text-dark dark:text-text-light">
         {label} *
       </label>
       <input

@@ -6,8 +6,10 @@ import Settings from "./pages/Settings";
 import Notes from "./pages/Notes";
 import Layout from "./components/Layout";
 import CreateNotes from "./pages/CreateNote";
+import useTheme from "./hooks/useTheme";
 
 function App() {
+  useTheme();
   return (
     <Router>
       <Routes>

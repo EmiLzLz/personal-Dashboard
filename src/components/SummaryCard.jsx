@@ -20,13 +20,13 @@ function SummaryCard({ title, icon: Icon, endpoint }) {
         <Icon className="icon w-6 h-6 text-white" />
       </div>
 
-      <div className="summary-card-container w-11/12 sm:w-11/12 hover-effect relative p-6 pt-2 bg-white rounded-xl shadow-sm flex flex-col mt-4">
+      <div className="summary-card-container w-11/12 sm:w-11/12 hover-effect relative p-6 pt-2 bg-element-light dark:bg-element-dark dark:text-text-light rounded-xl shadow-sm flex flex-col mt-4">
         {/* Contenedor para título y número, alineado a la derecha */}
         <div className="ml-auto text-right mt-4">
-          <p className="title text-sm font-medium text-gray-500 mb-2">
+          <p className="title text-sm font-medium text-text-dark dark:text-text-light mb-2">
             {title}
           </p>
-          <div className="total text-3xl font-bold text-gray-800 mb-2">
+          <div className="total text-3xl font-bold text-text-dark dark:text-text-light mb-2">
             {totalData}
           </div>
           <div className="text-sm text-green-600 font-medium border-t-2 w-full">

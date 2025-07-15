@@ -38,3 +38,5 @@ function useTheme() {
 
   return [userPreference, setUserPreference];
 }
+
+export default useTheme;

@@ -51,19 +51,19 @@ const CardSlider = () => {
               paddingBottom: "20px",
             }}
           >
-            <div className="card-container bg-white rounded-lg max-w-[300px] w-full flex flex-col shadow-lg border border-gray-200">
-              <div className="bg-white text-gray-800 font-semibold text-center py-3 rounded-t-lg border-b border-gray-200">
+            <div className="card-container bg-element-light dark:bg-element-dark rounded-lg max-w-[300px] w-full flex flex-col shadow-lg">
+              <div className="bg-element-light dark:bg-element-dark text-text-dark dark:text-text-light font-semibold text-center py-3 rounded-t-lg">
                 Usuario #{user.id}
               </div>
-              <div className="p-4 flex flex-col flex-grow text-gray-800 text-sm space-y-2">
+              <div className="p-4 flex flex-col flex-grow text-text-dark dark:text-text-light text-sm space-y-2">
                 <h3 className="text-lg font-semibold truncate">{user.name}</h3>
-                <p className="text-gray-600 truncate">@{user.username}</p>
+                <p className="text-text-dark dark:text-text-light truncate">@{user.username}</p>
 
                 <div>
-                  <span className="font-semibold text-gray-700">Email:</span>{" "}
+                  <span className="font-semibold text-text-dark dark:text-text-light">Email:</span>{" "}
                   <a
                     href={`mailto:${user.email}`}
-                    className="text-[#29339B] hover:underline truncate block"
+                    className="text-text-dark dark:text-text-light hover:underline truncate block"
                     title={user.email}
                   >
                     {user.email}
@@ -71,26 +71,26 @@ const CardSlider = () => {
                 </div>
 
                 <div>
-                  <span className="font-semibold text-gray-700">Tel:</span>{" "}
+                  <span className="font-semibold text-text-dark dark:text-text-light">Tel:</span>{" "}
                   <span className="truncate block" title={user.phone}>
                     {user.phone}
                   </span>
                 </div>
 
                 <div>
-                  <span className="font-semibold text-gray-700">Ciudad:</span>{" "}
+                  <span className="font-semibold text-text-dark dark:text-text-light">Ciudad:</span>{" "}
                   <span className="truncate block" title={user.address.city}>
                     {user.address.city}
                   </span>
                 </div>
 
                 <div>
-                  <span className="font-semibold text-gray-700">Web:</span>{" "}
+                  <span className="font-semibold text-text-dark dark:text-text-light">Web:</span>{" "}
                   <a
                     href={`http://${user.website}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#29339B] hover:underline truncate block"
+                    className="text-text-dark dark:text-text-light hover:underline truncate block"
                     title={user.website}
                   >
                     {user.website}

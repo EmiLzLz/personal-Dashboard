@@ -10,10 +10,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bg-light': '#F5EDF0',
+        'bg-light': '#f7f9fa',
         'bg-dark': '#171717',
+        'element-dark': '#383838',
+        'element-light': '#FFFFFF',
         'text-dark': '#171717',
-        'text-light': '#F5EDF0',
+        'text-light': '#f7f9fa',
       },
     },
   },

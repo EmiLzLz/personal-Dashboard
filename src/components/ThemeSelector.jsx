@@ -1,7 +1,9 @@
 import React from "react";
 import { Sun, Moon, Monitor } from "lucide-react";
+import useTheme from "../hooks/useTheme";
 
 export default function ThemeSelector() {
+  const [userPreference, setUserPreference] = useTheme();
   return (
     <>
       <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 w-full max-w-2xl mx-auto">
@@ -18,6 +20,8 @@ export default function ThemeSelector() {
               type="radio"
               name="theme"
               value="light"
+              checked={userPreference === "light"}
+              onChange={() => setUserPreference("light")}
               className="custom-radio radio-light mt-1 flex-shrink-0"
             />
             <div className="flex items-center space-x-3 min-w-0 flex-1">
@@ -40,6 +44,8 @@ export default function ThemeSelector() {
               type="radio"
               name="theme"
               value="dark"
+              checked={userPreference === "dark"}
+              onChange={() => setUserPreference("dark")}
               className="custom-radio radio-dark mt-1 flex-shrink-0"
             />
             <div className="flex items-center space-x-3 min-w-0 flex-1">
@@ -61,7 +67,9 @@ export default function ThemeSelector() {
             <input
               type="radio"
               name="theme"
-              value="system"
+              value="auto"
+              checked={userPreference === "auto"}
+              onChange={() => setUserPreference("auto")}
               className="custom-radio radio-system mt-1 flex-shrink-0"
             />
             <div className="flex items-center space-x-3 min-w-0 flex-1">

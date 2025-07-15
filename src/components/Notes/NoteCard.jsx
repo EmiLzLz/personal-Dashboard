@@ -14,7 +14,7 @@ function NoteCard({ id, onDelete, icon, title, description, priority }) {
   return (
     <div
       key={id}
-      className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-300 cursor-pointer group w-full sm:w-auto"
+      className="bg-element-light dark:bg-element-dark rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group w-full sm:w-auto"
     >
       <div
         className={`note-icon w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 ${getPriorityColor(
@@ -24,10 +24,10 @@ function NoteCard({ id, onDelete, icon, title, description, priority }) {
         {icon}
       </div>
       <div className="note-body">
-        <h4 className="text-lg font-semibold text-gray-900 mb-2 break-words">
+        <h4 className="text-lg font-semibold text-text-dark dark:text-text-light mb-2 break-words">
           {title}
         </h4>
-        <p className="text-gray-600 leading-relaxed break-words">
+        <p className="text-text-dark dark:text-text-light leading-relaxed break-words">
           {description}
         </p>
       </div>

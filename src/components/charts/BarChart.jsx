@@ -38,11 +38,11 @@ const StatsBarChart = () => {
   }));
 
   return (
-   <div className="w-11/12 mx-auto mt-8 px-4 py-4 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border border-white/50">
-      <h2 className="text-lg font-semibold text-black mb-1 text-center tracking-wide">
+   <div className="w-11/12 mx-auto mt-8 px-4 py-4 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border">
+      <h2 className="text-lg font-semibold text-text-dark dark:text-text-light mb-1 text-center tracking-wide">
         Posts by User
       </h2>
-      <p className="text-gray-700 text-center mb-4 text-xs">
+      <p className="text-text-dark dark:text-text-light text-center mb-4 text-xs">
         Distribution of posts across different users in the system
       </p>
       <ResponsiveContainer width="100%" height={240}>

@@ -4,7 +4,7 @@ import StatsBarChart from "../components/charts/BarChart";
 import StatsPieChart from "../components/charts/PieChart";
 import CardSlider from "../components/StatsSlider";
 import SummaryCard from "../components/SummaryCard";
-import { FileText, MessageCircle, Image, Camera, Users } from "lucide-react";
+import { FileText, MessageCircle, Camera, Users } from "lucide-react";
 
 function Dashboard() {
   return (
@@ -14,6 +14,7 @@ function Dashboard() {
           title={"POSTS"}
           icon={FileText}
           endpoint={"https://jsonplaceholder.typicode.com/posts"}
+          
         />
         <SummaryCard
           title={"COMMENTS"}
