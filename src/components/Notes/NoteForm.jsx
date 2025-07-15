@@ -5,6 +5,10 @@ export default function NotesForm() {
   const { values, errors, handleChange, handleSubmit } = useNotesForm();
   const [notes, setNotes] = useLocalStorage("Notes", []);
 
+  /**
+   * The function `handleFormSubmit` validates form input, generates a new note object with a unique ID
+   * and creation timestamp, and adds it to a list of notes if there are no validation errors.
+   */
   const handleFormSubmit = (e) => {
     const validationErrors = handleSubmit(e);
     if (Object.keys(validationErrors).length === 0) {

@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
-    <div className="bg-bg-light dark:bg-black dark:text-text-light w-screen pt-32">
+    <div className="bg-bg-light dark:bg-bg-dark dark:text-text-light w-screen pt-32">
       <div className="header-section">
         <Header />
       </div>

@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import ThemeSelector from "../components/ThemeSelector";
 
 function Settings() {
   return (
-    <section>Settings</section>
-  )
+    <section className="w-full h-full md:h-screen">
+      <ThemeSelector />
+    </section>
+  );
 }
 
-export default Settings
+export default Settings;

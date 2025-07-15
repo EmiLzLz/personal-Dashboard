@@ -20,6 +20,9 @@ function NotesList() {
     setUserSearch(value);
   };
 
+  /* The `useEffect` hook in the provided code snippet is responsible for filtering the notes based on
+  the user's search input and updating the `filteredNotes` state accordingly. Here's a breakdown of
+  what it does: */
   useEffect(() => {
       const similarNotes = notes.filter((note) =>
         note.title.toLowerCase().includes(debouncedSearch.toLowerCase())
