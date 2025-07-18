@@ -6,6 +6,8 @@ function Header({ onToggleSidebar, sidebarCollapsed, sidebarHovered }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
+  
+
   // Mapeo de rutas a nombres de páginas
   const pageNames = {
     "/": "Dashboard",
