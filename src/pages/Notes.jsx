@@ -3,7 +3,7 @@ import NotesList from "../components/Notes/NotesList";
 
 function Notes() {
   return (
-    <section className="w-screen h-full md:h-screen">
+    <section className="w-full h-full md:h-screen">
       <NotesList />
     </section>
   );

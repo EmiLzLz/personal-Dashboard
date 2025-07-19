@@ -34,13 +34,13 @@ function NotesList() {
 
   return (
     <>
-      <div className="note-list-container w-10/12 mx-auto flex flex-col items-center justify-center min-h-screen sm:h-screen px-6 py-14 relative bg-transparent">
+      <div className="note-list-container w-full md:w-10/12 mx-auto flex flex-col items-center justify-center min-h-screen sm:h-screen px-2 md:px-6 py-14 relative bg-transparent">
         {/* Fondo radial púrpura */}
         <div className="absolute inset-0 radial-purple-bg pointer-events-none"></div>
 
         <div className="header-section text-center mb-8 relative z-10">
           <div className="main-icon w-16 h-16 bg-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <BookOpen className="w-8 h-8 text-text-dark dark:text-text-light" />
+            <BookOpen className="w-8 h-8 text-text-light dark:text-text-light" />
           </div>
           <div className="title-description">
             <h1 className="text-3xl font-semibold text-text-dark dark:text-text-light mb-2">

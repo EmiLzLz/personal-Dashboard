@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Menu, User, Settings } from "lucide-react";
 
-function Header({ onToggleSidebar, sidebarCollapsed, sidebarHovered }) {
+function Header({ onToggleSidebar, sidebarCollapsed, sidebarHovered, isMobileSidebarOpen }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
-
-  
 
   // Mapeo de rutas a nombres de páginas
   const pageNames = {
@@ -21,6 +20,22 @@ function Header({ onToggleSidebar, sidebarCollapsed, sidebarHovered }) {
   const getCurrentPageName = () => {
     return pageNames[location.pathname] || "Page";
   };
+
+  // Detectar si es móvil y actualizar cuando cambie el tamaño
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Verificar al montar el componente
+    checkIsMobile();
+    
+    // Agregar listener para cambios de tamaño
+    window.addEventListener('resize', checkIsMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
   // Detectar scroll para aplicar efecto glass
   useEffect(() => {
@@ -48,12 +63,18 @@ function Header({ onToggleSidebar, sidebarCollapsed, sidebarHovered }) {
 
   // Determinar la posición izquierda del header
   const getHeaderLeftPosition = () => {
+    // En móvil, siempre usar left-0 porque sidebar es overlay
+    if (isMobile) {
+      return "left-0";
+    }
+    
+    // En desktop, aplicar posición según estado de sidebar
     if (!sidebarCollapsed) {
-      return "left-64"; // Sidebar expandida
+      return "left-64"; // Sidebar expandida desktop
     } else if (sidebarHovered) {
-      return "left-64"; // Sidebar colapsada pero con hover
+      return "left-64"; // Sidebar colapsada con hover desktop
     } else {
-      return "left-16"; // Sidebar colapsada
+      return "left-16"; // Sidebar colapsada desktop
     }
   };
 

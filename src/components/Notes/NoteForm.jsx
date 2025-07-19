@@ -23,7 +23,7 @@ export default function NotesForm() {
   };
 
   return (
-    <div className="relative w-full flex justify-center items-center min-h-screen">
+    <div className="relative px-2 md:px-0 w-full flex justify-center items-center h-full">
       {/* Efecto de luz azul difuminado en el centro */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-800/20 rounded-full blur-3xl animate-pulse"></div>
@@ -161,9 +161,9 @@ export default function NotesForm() {
             Create Note
           </button>
 
-          {/* Texto legal */}
-          <p className="text-xs text-gray-500 text-center mt-4">
-            By creating a note you agree to our Terms and Privacy Policy.
+          
+          <p className="text-xs text-gray-500 dark:text-text-light text-center mt-4">
+            You can see your note at Notes section
           </p>
         </form>
       </div>

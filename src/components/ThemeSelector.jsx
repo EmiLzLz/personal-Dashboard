@@ -6,9 +6,9 @@ export default function ThemeSelector() {
   const [userPreference, setUserPreference] = useTheme();
   return (
     <>
-      <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 w-full max-w-2xl mx-auto">
-        <h2 className="text-2xl font-light text-gray-900 mb-2">Appearance</h2>
-        <p className="text-gray-500 text-sm mb-6 leading-relaxed">
+      <div className="bg-element-light dark:bg-element-dark rounded-2xl p-6 shadow-lg w-full h-full mx-auto">
+        <h2 className="text-2xl font-light text-text-dark dark:text-text-light mb-2">Appearance</h2>
+        <p className="text-text-dark dark:text-text-light text-sm mb-6 leading-relaxed">
           Choose how you want the interface to look. Select a theme that matches
           your preference or let the system decide based on your device
           settings.
@@ -29,10 +29,10 @@ export default function ThemeSelector() {
                 <Sun className="w-5 h-5 text-yellow-600" />
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-sm font-medium text-gray-900">
+                <span className="block text-sm font-medium text-text-dark dark:text-text-light">
                   Light
                 </span>
-                <span className="block text-xs text-gray-500 mt-0.5">
+                <span className="block text-xs text-text-dark dark:text-text-light mt-0.5">
                   Clean and bright interface for daytime use
                 </span>
               </div>
@@ -53,10 +53,10 @@ export default function ThemeSelector() {
                 <Moon className="w-5 h-5 text-purple-600" />
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-sm font-medium text-gray-900">
+                <span className="block text-sm font-medium text-text-dark dark:text-text-light">
                   Dark
                 </span>
-                <span className="block text-xs text-gray-500 mt-0.5">
+                <span className="block text-xs text-text-dark dark:text-text-light mt-0.5">
                   Easy on the eyes for low-light environments
                 </span>
               </div>
@@ -77,10 +77,10 @@ export default function ThemeSelector() {
                 <Monitor className="w-5 h-5 text-gray-600" />
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-sm font-medium text-gray-900">
+                <span className="block text-sm font-medium text-text-dark dark:text-text-light">
                   System
                 </span>
-                <span className="block text-xs text-gray-500 mt-0.5">
+                <span className="block text-xs text-text-dark dark:text-text-light mt-0.5">
                   Automatically matches your device preferences
                 </span>
               </div>

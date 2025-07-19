@@ -38,14 +38,14 @@ const StatsBarChart = () => {
   }));
 
   return (
-   <div className="w-11/12 mx-auto mt-8 px-4 py-4 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border">
+    <div className="w-11/12 h-full mx-auto px-4 py-4 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border">
       <h2 className="text-lg font-semibold text-text-dark dark:text-text-light mb-1 text-center tracking-wide">
         Posts by User
       </h2>
       <p className="text-text-dark dark:text-text-light text-center mb-4 text-xs">
         Distribution of posts across different users in the system
       </p>
-      <ResponsiveContainer width="100%" height={240}>
+      <ResponsiveContainer idth="100%" aspect={1.2}>
         <BarChart
           data={chartData}
           margin={{ top: 10, right: 20, left: 10, bottom: 40 }}
