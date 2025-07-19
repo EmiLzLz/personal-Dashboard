@@ -2,6 +2,7 @@ import React from "react";
 import useForm from "../hooks/useForm";
 import useLocalStorage from "../hooks/useLocalStorage";
 import InputField from "./InputField";
+import { toast } from "sonner";
 
 const DEFAULT_USER = {
   name: "",
@@ -16,8 +17,16 @@ function ProfileEditor() {
   const handleFormSubmit = (e) => {
     const validationErrors = handleSubmit(e);
     if (Object.keys(validationErrors).length === 0) {
+      toast("Saving user data...");
       setStoredUser(values);
-      console.log("Guardando en localStorage:", values);
+      toast.success("Data saved successfully", {
+        style: { background: "#09814A", color: "white" },
+      });
+    }
+    else{
+      toast.error("Something went wrong. Please, check your info", {
+        style: { background: "#EE4266", color: "white" },
+      });
     }
   };
 

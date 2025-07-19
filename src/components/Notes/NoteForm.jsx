@@ -1,5 +1,6 @@
 import useNotesForm from "../../hooks/useNotesForm";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { toast } from "sonner";
 
 export default function NotesForm() {
   const { values, errors, handleChange, handleSubmit } = useNotesForm();
@@ -12,13 +13,20 @@ export default function NotesForm() {
   const handleFormSubmit = (e) => {
     const validationErrors = handleSubmit(e);
     if (Object.keys(validationErrors).length === 0) {
+      toast("Saving note...");
       const newNote = {
         ...values,
         id: crypto.randomUUID(),
         createdAt: new Date().toISOString(),
       };
       setNotes([...notes, newNote]);
-      console.log(newNote)
+      toast.success("Note saved successfully", {
+        style: { background: "#09814A", color: "white" },
+      });
+    } else {
+      toast.error("Something went wrong. Please, check your info", {
+        style: { background: "#EE4266", color: "white" },
+      });
     }
   };
 
@@ -161,7 +169,6 @@ export default function NotesForm() {
             Create Note
           </button>
 
-          
           <p className="text-xs text-gray-500 dark:text-text-light text-center mt-4">
             You can see your note at Notes section
           </p>

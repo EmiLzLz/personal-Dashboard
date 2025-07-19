@@ -3,6 +3,7 @@ import NoteCard from "./NoteCard";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
 import useDebounce from "../../hooks/useDebounce";
+import { toast } from "sonner";
 
 function NotesList() {
   const [notes, setNotes] = useLocalStorage("Notes", []);
@@ -13,6 +14,9 @@ function NotesList() {
   const handleDelete = (id) => {
     const notesUpdate = notes.filter((note) => note.id !== id);
     setNotes(notesUpdate);
+    toast.info("Note deleted successfully", {
+      style: { background: "yellow", color: "black" },
+    });
   };
 
   const handleInputChange = (e) => {
@@ -24,13 +28,18 @@ function NotesList() {
   the user's search input and updating the `filteredNotes` state accordingly. Here's a breakdown of
   what it does: */
   useEffect(() => {
-      const similarNotes = notes.filter((note) =>
-        note.title.toLowerCase().includes(debouncedSearch.toLowerCase())
-      );
+    const similarNotes = notes.filter((note) =>
+      note.title.toLowerCase().includes(debouncedSearch.toLowerCase())
+    );
 
-      setFilteredNotes(similarNotes);
-      console.log(filteredNotes);
-    }, [debouncedSearch, notes]);
+    setFilteredNotes(similarNotes);
+
+    if (debouncedSearch && similarNotes.length === 0) {
+      toast.info("Something went wrong. Please, check your info", {
+        style: { background: "#E3B505", color: "white" },
+      });
+    }
+  }, [debouncedSearch, notes]);
 
   return (
     <>
@@ -66,18 +75,22 @@ function NotesList() {
         </div>
 
         <div className="notes-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
-          {(filteredNotes.length > 0 ? filteredNotes : notes).map((note) => (
-            <NoteCard
-              key={note.id}
-              id={note.id}
-              icon={<StickyNote className="w-6 h-6 text-white" />}
-              iconBg="bg-blue-500"
-              title={note.title}
-              description={note.description}
-              priority={note.priority}
-              onDelete={handleDelete}
-            />
-          ))}
+          {filteredNotes.length === 0 ? (
+            <p className="text-text-dark dark:text-text-light"></p>
+          ) : (
+            filteredNotes.map((note) => (
+              <NoteCard
+                key={note.id}
+                id={note.id}
+                icon={<StickyNote className="w-6 h-6 text-white" />}
+                iconBg="bg-blue-500"
+                title={note.title}
+                description={note.description}
+                priority={note.priority}
+                onDelete={handleDelete}
+              />
+            ))
+          )}
         </div>
       </div>
     </>

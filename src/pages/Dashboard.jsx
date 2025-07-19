@@ -10,6 +10,14 @@ function Dashboard() {
   return (
     <section className="stats min-h-screen pt-2 md:pt-40 px-2 md:px-8">
       <div className=" mx-auto">
+        {/* Título principal */}
+        <div className="mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
+            General Statistics
+          </h1>
+          <div className="w-36 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+        </div>
+
         {/* Primera fila: Summary Cards con espacio central */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-6">
           {/* Dos summary cards a la izquierda */}
@@ -53,21 +61,31 @@ function Dashboard() {
         </div>
 
         {/* Segunda fila: Gráficas */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-          {/* Columna izquierda: dos gráficas una debajo de otra */}
-          <div className="col-span-1 space-y-6">
-            <div>
-              <StatsLineChart />
-            </div>
+        <div className="space-y-6 mb-6 pt-10">
+          {/* Fila superior: PieChart y LineChart lado a lado */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <StatsPieChart />
             </div>
+            <div>
+              <StatsLineChart />
+            </div>
           </div>
 
-          {/* Columna derecha: una gráfica ocupando todo el espacio */}
-          <div className="col-span-1 lg:col-span-2">
+          {/* Fila inferior: BarChart ocupando todo el ancho */}
+          <div>
             <StatsBarChart />
           </div>
+        </div>
+
+        {/* Subtítulo para el slider */}
+        <div className="mb-6 text-left pt-28">
+          <h2 className="text-2xl md:text-3xl font-semibold text-slate-800 ">
+            Recent Clients
+          </h2>
+          <p className="text-slate-600 text-sm md:text-base max-w-2xl">
+            Explore most recent client profiles and their activity.
+          </p>
         </div>
 
         {/* Tercera fila: Slider ocupando 100% del ancho */}

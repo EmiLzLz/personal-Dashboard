@@ -1,9 +1,39 @@
 import React from "react";
 import { Sun, Moon, Monitor } from "lucide-react";
+import { toast } from "sonner";
 import useTheme from "../hooks/useTheme";
 
 export default function ThemeSelector() {
   const [userPreference, setUserPreference] = useTheme();
+
+  const handleThemeChange = (theme) => {
+    setUserPreference(theme);
+    
+    // Mostrar notificación según el tema seleccionado
+    switch (theme) {
+      case "light":
+        toast.success("Light theme activated", {
+          description: "Easy on the eyes for low-light environments",
+          icon: "☀️",
+        });
+        break;
+      case "dark":
+        toast.success("Dark theme activated", {
+          description: "Diseño suave para ambientes con poca luz",
+          icon: "🌙",
+        });
+        break;
+      case "auto":
+        toast.success("System preference activated", {
+          description: "Automatically matches your device preferences",
+          icon: "🖥️",
+        });
+        break;
+      default:
+        toast.success("Tema cambiado exitosamente");
+    }
+  };
+
   return (
     <>
       <div className="bg-element-light dark:bg-element-dark rounded-2xl p-6 shadow-lg w-full h-full mx-auto">
@@ -21,7 +51,7 @@ export default function ThemeSelector() {
               name="theme"
               value="light"
               checked={userPreference === "light"}
-              onChange={() => setUserPreference("light")}
+              onChange={() => handleThemeChange("light")}
               className="custom-radio radio-light mt-1 flex-shrink-0"
             />
             <div className="flex items-center space-x-3 min-w-0 flex-1">
@@ -45,7 +75,7 @@ export default function ThemeSelector() {
               name="theme"
               value="dark"
               checked={userPreference === "dark"}
-              onChange={() => setUserPreference("dark")}
+              onChange={() => handleThemeChange("dark")}
               className="custom-radio radio-dark mt-1 flex-shrink-0"
             />
             <div className="flex items-center space-x-3 min-w-0 flex-1">
@@ -69,7 +99,7 @@ export default function ThemeSelector() {
               name="theme"
               value="auto"
               checked={userPreference === "auto"}
-              onChange={() => setUserPreference("auto")}
+              onChange={() => handleThemeChange("auto")}
               className="custom-radio radio-system mt-1 flex-shrink-0"
             />
             <div className="flex items-center space-x-3 min-w-0 flex-1">

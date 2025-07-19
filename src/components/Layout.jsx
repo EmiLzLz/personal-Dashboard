@@ -72,7 +72,7 @@ function Layout() {
           sidebarHovered={sidebarHovered}
           isMobileSidebarOpen={isMobileSidebarOpen}
         />
-        <main className="p-0 md:p-8 pt-40">
+        <main className="p-0 md:px-8 pt-60">
           <Outlet />
         </main>
       </div>

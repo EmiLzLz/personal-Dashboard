@@ -38,59 +38,68 @@ const StatsBarChart = () => {
   }));
 
   return (
-    <div className="w-11/12 h-full mx-auto px-4 py-4 rounded-2xl bg-white/30 backdrop-blur-xl shadow-2xl animate-fade-in border">
-      <h2 className="text-lg font-semibold text-text-dark dark:text-text-light mb-1 text-center tracking-wide">
+    <div className="w-full mx-auto px-6 py-6 rounded-2xl bg-slate-800 shadow-2xl animate-fade-in border border-slate-700">
+      <h2 className="text-lg font-semibold text-white mb-1 text-left tracking-wide">
         Posts by User
       </h2>
-      <p className="text-text-dark dark:text-text-light text-center mb-4 text-xs">
+      <p className="text-slate-300 text-left mb-6 text-sm">
         Distribution of posts across different users in the system
       </p>
-      <ResponsiveContainer idth="100%" aspect={1.2}>
-        <BarChart
-          data={chartData}
-          margin={{ top: 10, right: 20, left: 10, bottom: 40 }}
-        >
-          <CartesianGrid horizontal={true} vertical={false} stroke="#475569" />
-
-          <XAxis dataKey="userId" stroke="#000000">
-            <Label
-              value="User ID"
-              position="outsideBottom"
-              dy={25}
-              style={{ fill: "#000000", fontSize: 12 }}
+      <div className="h-80">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            data={chartData}
+            margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+          >
+            <CartesianGrid 
+              horizontal={true} 
+              vertical={false} 
+              stroke="#374151" 
+              strokeDasharray="3 3"
             />
-          </XAxis>
 
-          <YAxis stroke="#000000">
-            <Label
-              value="Number of Posts"
-              angle={-90}
-              position="insideLeft"
-              style={{ textAnchor: "middle", fill: "#000000", fontSize: 12 }}
+            <XAxis 
+              dataKey="userId" 
+              stroke="#9ca3af"
+              axisLine={false}
+              tickLine={false}
+              fontSize={12}
             />
-          </YAxis>
 
-          <Tooltip
-            contentStyle={{
-              backgroundColor: "#1e293b",
-              borderColor: "#475569",
-              color: "white",
-            }}
-            labelStyle={{ color: "#56E39F" }}
-            itemStyle={{ color: "#f1f5f9" }}
-          />
+            <YAxis 
+              stroke="#9ca3af"
+              axisLine={false}
+              tickLine={false}
+              fontSize={12}
+            />
 
-          <Bar
-            dataKey="postCount"
-            fill="#56E39F"
-            radius={[6, 6, 0, 0]}
-            isAnimationActive={true}
-            animationDuration={800}
-          />
-        </BarChart>
-      </ResponsiveContainer>
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "#1f2937",
+                borderColor: "#374151",
+                color: "white",
+                borderRadius: "8px",
+                border: "1px solid #374151",
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+              }}
+              labelStyle={{ color: "#f3f4f6", fontWeight: "600" }}
+              itemStyle={{ color: "#60a5fa" }}
+              cursor={{ fill: "rgba(148, 163, 184, 0.1)" }}
+            />
+
+            <Bar
+              dataKey="postCount"
+              fill="#60a5fa"
+              radius={[9, 9, 0, 0]}
+              maxBarSize={24}
+              isAnimationActive={true}
+              animationDuration={800}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };
 
-export default StatsBarChart;
+export default StatsBarChart

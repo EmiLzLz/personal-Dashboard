@@ -116,7 +116,7 @@ const Sidebar = ({
           <div className="p-4 ">
             <div className="relative">
               <div
-                className="flex items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg p-2 transition-colors"
+                className="flex items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg py-2 px-0 transition-colors"
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               >
                 <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
@@ -169,7 +169,7 @@ const Sidebar = ({
                     <button
                       key={index}
                       onClick={() => handleNavigation(item.path)}
-                      className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                      className={`w-full flex items-center px-1 py-1 text-sm font-medium rounded-full transition-colors ${
                         isActive
                           ? "bg-blue-50 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400"
                           : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-200"
