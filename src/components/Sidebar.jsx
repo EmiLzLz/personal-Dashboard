@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Navigate } from "react-router-dom";
 import {
   LayoutDashboard,
   BarChart3,
@@ -9,7 +9,16 @@ import {
   Settings,
   ChevronDown,
   LogOut,
+  LogIn,
+  UserRoundPlus,
 } from "lucide-react";
+import useLocalStorage from "../hooks/useLocalStorage";
+
+const DEFAULT_USER = {
+  name: "",
+  email: "",
+  job: "",
+};
 
 const Sidebar = ({
   isCollapsed = false,
@@ -20,7 +29,7 @@ const Sidebar = ({
   const [isHovered, setIsHovered] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  
+  const [user, setUser] = useLocalStorage("Users", DEFAULT_USER);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -34,7 +43,8 @@ const Sidebar = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const isExpanded = !isCollapsed || isHovered;
+  // En móvil siempre expandida, en desktop depende del estado collapsed/hovered
+  const isExpanded = isMobile ? true : !isCollapsed || isHovered;
 
   // Manejar hover
   const handleMouseEnter = () => {
@@ -63,7 +73,7 @@ const Sidebar = ({
   const handleLogout = () => {
     // Aquí puedes agregar lógica de logout
     console.log("Logout");
-    navigate("/");
+    navigate("/login");
   };
 
   const menuItems = [
@@ -72,6 +82,8 @@ const Sidebar = ({
     { icon: FileText, label: "Create Note", path: "/create-note" },
     { icon: StickyNote, label: "Notes", path: "/notes" },
     { icon: Settings, label: "Settings", path: "/settings" },
+    { icon: LogIn, label: "Log In", path: "/login" },
+    { icon: UserRoundPlus, label: "Sign Up", path: "/signup" },
   ];
 
   return (
@@ -86,22 +98,24 @@ const Sidebar = ({
 
       <div
         className={`
-          bg-element-light dark:bg-element-dark border-gray-200 h-screen fixed top-0 left-0 rounded-xl
-          transition-all duration-300 ease-in-out
+          bg-element-light dark:bg-element-dark border-gray-200 fixed top-0 left-0 rounded-xl
+          transition-all duration-300 ease-in-out overflow-hidden
           ${
             isMobile
-              ? `z-50 w-64 transform ${
+              ? `z-50 w-64 h-screen transform ${
                   isMobileOpen ? "translate-x-0" : "-translate-x-full"
                 }`
-              : `m-3 ${isExpanded ? "w-64" : "w-16"} z-50`
+              : `m-3 h-[calc(100vh-1.5rem)] ${
+                  isExpanded ? "w-64" : "w-16"
+                } z-50`
           }
         `}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full overflow-y-auto">
           {/* Header */}
-          <div className="flex items-center p-4 ">
+          <div className="flex items-center p-4 flex-shrink-0">
             <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center">
               <LayoutDashboard size={20} className="text-white" />
             </div>
@@ -113,7 +127,7 @@ const Sidebar = ({
           </div>
 
           {/* Profile Section */}
-          <div className="p-4 ">
+          <div className="p-4 flex-shrink-0">
             <div className="relative">
               <div
                 className="flex items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg py-2 px-0 transition-colors"
@@ -126,7 +140,10 @@ const Sidebar = ({
                   <>
                     <div className="ml-3 flex-1">
                       <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
-                        Brooklyn Alice
+                        {user.name}
+                      </p>
+                      <p className="text-sm font-medium text-gray-400 dark:text-gray-200">
+                        {user.job}
                       </p>
                     </div>
                     <ChevronDown
@@ -155,7 +172,7 @@ const Sidebar = ({
           </div>
 
           {/* Pages Section */}
-          <div className="flex-1 p-4">
+          <div className="flex-1 p-4 min-h-0">
             <div className="mb-4">
               {isExpanded && (
                 <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">

@@ -7,6 +7,8 @@ import Notes from "./pages/Notes";
 import Layout from "./components/Layout";
 import CreateNotes from "./pages/CreateNote";
 import useTheme from "./hooks/useTheme";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 function App() {
   useTheme();
@@ -19,6 +21,8 @@ function App() {
           <Route path="create-note" element={<CreateNotes />} />
           <Route path="notes" element={<Notes />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
         </Route>
       </Routes>
     </Router>

@@ -14,17 +14,17 @@ const CardSlider = () => {
 
   if (loading)
     return (
-      <p className="text-center text-gray-400 mt-8">Cargando usuarios...</p>
+      <p className="text-center text-gray-400 mt-8">Loading users...</p>
     );
   if (error)
     return (
       <p className="text-center text-red-500 mt-8">
-        Error al cargar los usuarios.
+        Error with loading users.
       </p>
     );
 
   return (
-    <div className="px-4 pt-20 max-w-[100vw] overflow-hidden">
+    <div className="px-4 pt-10 max-w-[100vw] overflow-hidden">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
@@ -53,7 +53,7 @@ const CardSlider = () => {
           >
             <div className="card-container bg-element-light dark:bg-element-dark rounded-lg max-w-[300px] w-full flex flex-col shadow-lg">
               <div className="bg-element-light dark:bg-element-dark text-text-dark dark:text-text-light font-semibold text-center py-3 rounded-t-lg">
-                Usuario #{user.id}
+                User ID #{user.id}
               </div>
               <div className="p-4 flex flex-col flex-grow text-text-dark dark:text-text-light text-sm space-y-2">
                 <h3 className="text-lg font-semibold truncate">{user.name}</h3>
@@ -78,7 +78,7 @@ const CardSlider = () => {
                 </div>
 
                 <div>
-                  <span className="font-semibold text-text-dark dark:text-text-light">Ciudad:</span>{" "}
+                  <span className="font-semibold text-text-dark dark:text-text-light">CiTY:</span>{" "}
                   <span className="truncate block" title={user.address.city}>
                     {user.address.city}
                   </span>
@@ -99,10 +99,10 @@ const CardSlider = () => {
 
                 <div className="mt-auto flex justify-between gap-2 pt-3">
                   <button className="flex-grow px-3 py-1.5 bg-[#56E39F] text-white rounded-md text-sm font-medium hover:bg-[#4BC08A] transition">
-                    Ver más
+                    Edit
                   </button>
                   <button className="flex-grow px-3 py-1.5 bg-gray-100 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-200 transition">
-                    Guardar
+                    View more
                   </button>
                 </div>
               </div>

@@ -3,7 +3,7 @@ import ThemeSelector from "../components/ThemeSelector";
 
 function Settings() {
   return (
-    <section className="w-full h-full md:h-screen pt-32">
+    <section className="w-full h-screen pt-3">
       <ThemeSelector />
     </section>
   );

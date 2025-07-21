@@ -36,7 +36,7 @@ export default function ThemeSelector() {
 
   return (
     <>
-      <div className="bg-element-light dark:bg-element-dark rounded-2xl p-6 shadow-lg w-full h-full mx-auto">
+      <div className="bg-element-light dark:bg-element-dark rounded-2xl p-6 shadow-lg w-full h-5/6 mx-auto">
         <h2 className="text-2xl font-light text-text-dark dark:text-text-light mb-2">Appearance</h2>
         <p className="text-text-dark dark:text-text-light text-sm mb-6 leading-relaxed">
           Choose how you want the interface to look. Select a theme that matches

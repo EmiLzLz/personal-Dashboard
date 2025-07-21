@@ -32,7 +32,7 @@ const StatsPieChart = () => {
   ];
 
   return (
-    <div className="w-full mx-auto px-6 py-6 rounded-2xl bg-white shadow-2xl animate-fade-in border border-slate-200">
+    <div className="w-full z-50 mx-auto px-6 py-6 rounded-2xl bg-white shadow-2xl animate-fade-in border border-slate-200">
       <h2 className="text-lg font-semibold text-slate-800 mb-1 text-left tracking-wide">
         Completed Tasks Distribution
       </h2>

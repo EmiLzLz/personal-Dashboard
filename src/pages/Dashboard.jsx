@@ -5,14 +5,16 @@ import StatsPieChart from "../components/charts/PieChart";
 import CardSlider from "../components/StatsSlider";
 import SummaryCard from "../components/SummaryCard";
 import { FileText, MessageCircle, Camera, Users } from "lucide-react";
+import TechSphere from "../components/SphereBg";
 
 function Dashboard() {
   return (
-    <section className="stats min-h-screen pt-2 md:pt-40 px-2 md:px-8">
-      <div className=" mx-auto">
+    <section className="stats min-h-screen pt-2 md:pt-20 px-2 md:px-8 z-0">
+      <TechSphere/>
+      <div className=" mx-auto z-10">
         {/* Título principal */}
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-text-dark dark:text-text-light mb-2">
             General Statistics
           </h1>
           <div className="w-36 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
@@ -61,7 +63,7 @@ function Dashboard() {
         </div>
 
         {/* Segunda fila: Gráficas */}
-        <div className="space-y-6 mb-6 pt-10">
+        <div className="space-y-6 mb-6 pt-10 relative">
           {/* Fila superior: PieChart y LineChart lado a lado */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -80,10 +82,10 @@ function Dashboard() {
 
         {/* Subtítulo para el slider */}
         <div className="mb-6 text-left pt-28">
-          <h2 className="text-2xl md:text-3xl font-semibold text-slate-800 ">
+          <h2 className="text-2xl md:text-3xl font-semibold text-text-dark dark:text-text-light ">
             Recent Clients
           </h2>
-          <p className="text-slate-600 text-sm md:text-base max-w-2xl">
+          <p className="text-text-dark dark:text-text-light text-sm md:text-base max-w-2xl ">
             Explore most recent client profiles and their activity.
           </p>
         </div>

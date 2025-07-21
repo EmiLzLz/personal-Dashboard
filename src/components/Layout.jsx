@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 
+
 function Layout() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [sidebarHovered, setSidebarHovered] = useState(false);
@@ -56,7 +57,7 @@ function Layout() {
   };
 
   return (
-    <div className="bg-bg-light dark:bg-bg-dark dark:text-text-light w-screen min-h-screen">
+    <div className="bg-bg-light dark:bg-bg-dark dark:text-text-light w-screen min-h-screen">  
       <Sidebar
         isCollapsed={sidebarCollapsed}
         onHoverChange={setSidebarHovered}
@@ -72,7 +73,7 @@ function Layout() {
           sidebarHovered={sidebarHovered}
           isMobileSidebarOpen={isMobileSidebarOpen}
         />
-        <main className="p-0 md:px-8 pt-60">
+        <main className="p-0 md:px-8 pt-20">
           <Outlet />
         </main>
       </div>

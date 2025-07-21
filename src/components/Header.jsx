@@ -14,6 +14,8 @@ function Header({ onToggleSidebar, sidebarCollapsed, sidebarHovered, isMobileSid
     "/notes": "Notes",
     "/settings": "Settings",
     "/create-note": "Create Note",
+    "/login": "Log In",
+    "/signup": "Sign Up"
   };
 
   // Obtener el nombre de la página actual
