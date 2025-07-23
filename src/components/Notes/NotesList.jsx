@@ -53,10 +53,10 @@ function NotesList() {
           </div>
           <div className="title-description">
             <h1 className="text-3xl font-semibold text-text-dark dark:text-text-light mb-2">
-              Welcome Royal,
+              Welcome to your Notelist,
             </h1>
             <p className="text-lg text-text-dark dark:text-text-light">
-              What I can help you discover?
+              You can search an specific note with the searchbar
             </p>
           </div>
         </div>
