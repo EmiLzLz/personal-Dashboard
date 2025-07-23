@@ -5,12 +5,12 @@ import StatsPieChart from "../components/charts/PieChart";
 import CardSlider from "../components/StatsSlider";
 import SummaryCard from "../components/SummaryCard";
 import { FileText, MessageCircle, Camera, Users } from "lucide-react";
-import TechSphere from "../components/SphereBg";
+
 
 function Dashboard() {
   return (
     <section className="stats min-h-screen pt-2 md:pt-20 px-2 md:px-8 z-0">
-      <TechSphere/>
+      
       <div className=" mx-auto z-10">
         {/* Título principal */}
         <div className="mb-8">
