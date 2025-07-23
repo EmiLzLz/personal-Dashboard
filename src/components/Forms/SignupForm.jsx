@@ -1,6 +1,6 @@
 import React from "react";
 import { Eye, EyeOff } from "lucide-react";
-import signupImg from "../assets/signup.webp";
+import signupImg from "../../assets/signup.webp";
 
 export default function SignUpComponent() {
   const [showPassword, setShowPassword] = React.useState(false);

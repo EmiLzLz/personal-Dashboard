@@ -1,6 +1,6 @@
 import React from "react";
-import useForm from "../hooks/useForm";
-import useLocalStorage from "../hooks/useLocalStorage";
+import useForm from "../../hooks/useForm";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import InputField from "./InputField";
 import { toast } from "sonner";
 
